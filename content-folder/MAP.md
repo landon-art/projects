@@ -73,3 +73,4 @@ Read this file before any job in this folder. Append what was learned below when
 
 - 2026-09-16: Initial map built from a full read of all 6 files.
 - 2026-09-16: Reviewed Part Three with user. Item 1 acted on: voice-notes-old.md now carries a "Superseded by voice-current.md" line at the top (link is now FOUND from the old file's side; voice-current.md still does not name it). Items 2 and 3 left unchanged by user decision; nothing breaks if they stay.
+- 2026-09-16: Folder now lives inside git repo landon-art/projects (private) as content-folder/. CLAUDE.md added at folder root with the read-MAP.md rule. Six sibling folders got the same CLAUDE.md line but have no MAP.md yet.
