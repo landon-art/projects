@@ -1,0 +1,40 @@
+/* Shared course stylesheet. Tufte-inspired: wide margins, serif body, sidenotes. */
+:root{--ink:#1a1a1a;--muted:#666;--rule:#ddd;--accent:#8a2b2b;--bg:#fffdf8;--card:#fff;--ok:#2e7d32;--bad:#b23a3a}
+@media (prefers-color-scheme:dark){:root{--ink:#e8e4dc;--muted:#a9a49a;--rule:#3a3a3a;--accent:#e08a8a;--bg:#161513;--card:#201f1c;--ok:#7bc47f;--bad:#e07a7a}}
+html{background:var(--bg);color:var(--ink);font:19px/1.55 Georgia,"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif}
+body{max-width:46rem;margin:0 auto;padding:3rem 1.5rem 6rem}
+h1{font-weight:400;font-size:2.2rem;line-height:1.15;margin:0 0 .3rem}
+h2{font-weight:400;font-size:1.4rem;margin:2.5rem 0 .6rem;font-style:italic}
+h3{font-weight:600;font-size:1rem;margin:1.6rem 0 .4rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.kicker{color:var(--muted);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 2rem}
+a{color:var(--accent)}
+hr{border:0;border-top:1px solid var(--rule);margin:2.5rem 0}
+p{margin:.8rem 0}
+.ja{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;font-size:1.5rem;line-height:1.4}
+.romaji{color:var(--muted);font-style:italic}
+.gloss{color:var(--muted);font-size:.95rem}
+.phrase{display:grid;grid-template-columns:1fr auto;gap:.5rem 1rem;align-items:center;padding:1rem 1.2rem;margin:1rem 0;background:var(--card);border-left:3px solid var(--accent);border-radius:0 6px 6px 0}
+.phrase .romaji,.phrase .gloss{grid-column:1}
+.note{font-size:.92rem;color:var(--muted);border-left:2px solid var(--rule);padding-left:.9rem;margin:1rem 0}
+.cite{font-size:.8rem;color:var(--muted)}
+button{font:inherit;font-size:.9rem;padding:.4rem .9rem;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:6px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.say::before{content:"▶ "}
+.quiz{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.quiz .q{margin:0 0 .8rem;font-weight:600}
+.quiz .opts{display:grid;gap:.5rem}
+.quiz .opts button{text-align:left;font-family:inherit;font-size:1rem;padding:.6rem .9rem}
+.quiz .opts button.ok{border-color:var(--ok);color:var(--ok)}
+.quiz .opts button.bad{border-color:var(--bad);color:var(--bad)}
+.quiz .fb{margin:.8rem 0 0;font-size:.95rem;min-height:1.4em}
+.score{font-size:.95rem;color:var(--muted);margin-top:1rem}
+.task{background:var(--card);border:2px dashed var(--accent);border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0}
+.task h3{margin-top:0;color:var(--accent)}
+ol,ul{padding-left:1.4rem}
+li{margin:.35rem 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+footer{margin-top:4rem;font-size:.9rem;color:var(--muted)}
+@media print{html{font-size:13px;background:#fff;color:#000}body{padding:0}button,.quiz,.no-print{display:none}.phrase{break-inside:avoid;border-left-color:#000}}

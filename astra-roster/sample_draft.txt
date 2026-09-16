@@ -1,0 +1,1 @@
+OpenAI released GPT-6 Astra on September 8, 2026. It has a 2 million token context window and was trained entirely on synthetic data.

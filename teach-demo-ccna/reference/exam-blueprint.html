@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>CCNA 200-301 v1.1 Blueprint and 12-Week Plan</title><link rel="stylesheet" href="../assets/style.css"></head><body><main>
+<header class="course"><span>CCNA 200-301 v1.1 &middot; Reference</span><a href="../lessons/0001-exam-map-and-diagnostic.html">Lesson 0001</a></header>
+<h1>Exam Blueprint and 12-Week Plan</h1>
+<p class="subtitle">Every numbered objective Cisco publishes, with the week it is scheduled. Print this. Tick objectives off as you can configure or explain them cold.</p>
+<div class="mission"><strong>Mission</strong>Pass 200-301 v1.1 by 8 December 2026. Source: <a href="200-301-CCNA-v1.1-exam-topics.pdf">official exam topics PDF</a> (Cisco, 2024). Note the disclaimer in the PDF: "other related topics may also appear."</p></div>
+
+<h2>Exam facts</h2>
+<table><tr><th>Item</th><th>Value</th></tr>
+<tr><td>Exam</td><td>200-301 CCNA v1.1, 120 minutes</td></tr>
+<tr><td>Passing score</td><td>Cisco does not publish it; community reports about 825/1000</td></tr>
+<tr><td>Question types</td><td>Multiple choice, multiple answer, drag-and-drop, simulation/lab items</td></tr>
+<tr><td>v1.1 retirement</td><td>Reported 2 Feb 2027 (v2.0 from 3 Feb 2027, same exam number). Verify on Cisco Learning Network before booking.</td></tr>
+</table>
+
+<h2>Domains, weights, weeks</h2>
+<table><tr><th>Domain</th><th>Weight</th><th>Weeks</th><th>Study hours (of ~110)</th></tr>
+<tr><td>1.0 Network Fundamentals</td><td><span class="weight">20%</span></td><td>1&ndash;3</td><td>24</td></tr>
+<tr><td>2.0 Network Access</td><td><span class="weight">20%</span></td><td>4&ndash;5</td><td>20</td></tr>
+<tr><td>3.0 IP Connectivity</td><td><span class="weight">25%</span></td><td>6&ndash;7</td><td>22</td></tr>
+<tr><td>4.0 IP Services</td><td><span class="weight">10%</span></td><td>8</td><td>9</td></tr>
+<tr><td>5.0 Security Fundamentals</td><td><span class="weight">15%</span></td><td>9</td><td>12</td></tr>
+<tr><td>6.0 Automation and Programmability</td><td><span class="weight">10%</span></td><td>10</td><td>7</td></tr>
+<tr><td>Review, practice exams, weak-spot labs</td><td></td><td>11&ndash;12</td><td>16</td></tr>
+</table>
+<p class="aside">Subnetting (1.6) runs as a daily 10-minute drill from week 1 to exam day. It is the single skill most cited in r/ccna failure posts. Anki review is daily from week 1.</p>
+
+<h2>1.0 Network Fundamentals <span class="weight">20%</span> &middot; weeks 1&ndash;3</h2>
+<table><tr><th>#</th><th>Objective</th><th>Week</th></tr>
+<tr><td>1.1</td><td>Explain role/function of network components: routers, L2/L3 switches, NGFW and IPS, APs, controllers, endpoints, servers, PoE</td><td>1</td></tr>
+<tr><td>1.2</td><td>Topology architectures: two-tier, three-tier, spine-leaf, WAN, SOHO, on-prem and cloud</td><td>1</td></tr>
+<tr><td>1.3</td><td>Physical interfaces and cabling: single-mode/multimode fiber, copper; shared media vs point-to-point</td><td>1</td></tr>
+<tr><td>1.4</td><td>Identify interface and cable issues: collisions, errors, duplex/speed mismatch</td><td>1</td></tr>
+<tr><td>1.5</td><td>Compare TCP to UDP</td><td>2</td></tr>
+<tr><td>1.6</td><td><b>Configure and verify IPv4 addressing and subnetting</b></td><td>2 + daily</td></tr>
+<tr><td>1.7</td><td>Describe private IPv4 addressing</td><td>2</td></tr>
+<tr><td>1.8</td><td>Configure and verify IPv6 addressing and prefix</td><td>3</td></tr>
+<tr><td>1.9</td><td>IPv6 address types: global/unique-local/link-local unicast, anycast, multicast, modified EUI-64</td><td>3</td></tr>
+<tr><td>1.10</td><td>Verify IP parameters on client OS (Windows, macOS, Linux)</td><td>3</td></tr>
+<tr><td>1.11</td><td>Wireless principles: nonoverlapping channels, SSID, RF, encryption</td><td>3</td></tr>
+<tr><td>1.12</td><td>Virtualization fundamentals: server virtualization, containers, VRFs</td><td>3</td></tr>
+<tr><td>1.13</td><td>Switching concepts: MAC learning/aging, frame switching, flooding, MAC table</td><td>2</td></tr></table>
+
+<h2>2.0 Network Access <span class="weight">20%</span> &middot; weeks 4&ndash;5</h2>
+<table><tr><th>#</th><th>Objective</th><th>Week</th></tr>
+<tr><td>2.1</td><td><b>Configure and verify VLANs</b> across switches: access ports (data, voice), default VLAN, inter-VLAN connectivity</td><td>4</td></tr>
+<tr><td>2.2</td><td><b>Configure and verify interswitch connectivity</b>: trunk ports, 802.1Q, native VLAN</td><td>4</td></tr>
+<tr><td>2.3</td><td>Configure and verify CDP and LLDP</td><td>4</td></tr>
+<tr><td>2.4</td><td>Configure and verify L2/L3 EtherChannel (LACP)</td><td>5</td></tr>
+<tr><td>2.5</td><td>Interpret Rapid PVST+: root bridge/port and port names, states and roles, PortFast, root guard, loop guard, BPDU filter, BPDU guard</td><td>5</td></tr>
+<tr><td>2.6</td><td>Cisco wireless architectures and AP modes</td><td>5</td></tr>
+<tr><td>2.7</td><td>WLAN physical connections: AP, WLC, access/trunk ports, LAG</td><td>5</td></tr>
+<tr><td>2.8</td><td>Device management access: Telnet, SSH, HTTP/HTTPS, console, TACACS+/RADIUS, cloud managed</td><td>4</td></tr>
+<tr><td>2.9</td><td>Interpret WLC GUI config for client connectivity: WLAN creation, security, QoS profiles, advanced settings</td><td>5</td></tr></table>
+
+<h2>3.0 IP Connectivity <span class="weight">25%</span> &middot; weeks 6&ndash;7</h2>
+<table><tr><th>#</th><th>Objective</th><th>Week</th></tr>
+<tr><td>3.1</td><td>Interpret routing table: protocol code, prefix, mask, next hop, administrative distance, metric, gateway of last resort</td><td>6</td></tr>
+<tr><td>3.2</td><td>Forwarding decision: longest prefix match, then AD, then metric</td><td>6</td></tr>
+<tr><td>3.3</td><td><b>Configure and verify IPv4/IPv6 static routing</b>: default, network, host, floating static</td><td>6</td></tr>
+<tr><td>3.4</td><td><b>Configure and verify single-area OSPFv2</b>: neighbor adjacencies, point-to-point, broadcast (DR/BDR), router ID</td><td>7</td></tr>
+<tr><td>3.5</td><td>First hop redundancy protocols: purpose, functions, concepts</td><td>7</td></tr></table>
+
+<h2>4.0 IP Services <span class="weight">10%</span> &middot; week 8</h2>
+<table><tr><th>#</th><th>Objective</th></tr>
+<tr><td>4.1</td><td><b>Configure and verify inside source NAT</b> using static and pools</td></tr>
+<tr><td>4.2</td><td><b>Configure and verify NTP</b> client and server mode</td></tr>
+<tr><td>4.3</td><td>Role of DHCP and DNS</td></tr>
+<tr><td>4.4</td><td>Function of SNMP</td></tr>
+<tr><td>4.5</td><td>Syslog facilities and severity levels</td></tr>
+<tr><td>4.6</td><td><b>Configure and verify DHCP client and relay</b></td></tr>
+<tr><td>4.7</td><td>QoS per-hop behavior: classification, marking, queuing, congestion, policing, shaping</td></tr>
+<tr><td>4.8</td><td><b>Configure devices for remote access using SSH</b></td></tr>
+<tr><td>4.9</td><td>TFTP/FTP capabilities and functions</td></tr></table>
+
+<h2>5.0 Security Fundamentals <span class="weight">15%</span> &middot; week 9</h2>
+<table><tr><th>#</th><th>Objective</th></tr>
+<tr><td>5.1</td><td>Key security concepts: threats, vulnerabilities, exploits, mitigation</td></tr>
+<tr><td>5.2</td><td>Security program elements: user awareness, training, physical access control</td></tr>
+<tr><td>5.3</td><td><b>Configure and verify device access control</b> using local passwords</td></tr>
+<tr><td>5.4</td><td>Password policy: management, complexity, alternatives (MFA, certificates, biometrics)</td></tr>
+<tr><td>5.5</td><td>IPsec remote access and site-to-site VPNs</td></tr>
+<tr><td>5.6</td><td><b>Configure and verify access control lists</b></td></tr>
+<tr><td>5.7</td><td><b>Configure and verify L2 security</b>: DHCP snooping, dynamic ARP inspection, port security</td></tr>
+<tr><td>5.8</td><td>Compare authentication, authorization, accounting</td></tr>
+<tr><td>5.9</td><td>Wireless security protocols: WPA, WPA2, WPA3</td></tr>
+<tr><td>5.10</td><td>Configure and verify WLAN in the GUI using WPA2 PSK</td></tr></table>
+
+<h2>6.0 Automation and Programmability <span class="weight">10%</span> &middot; week 10</h2>
+<table><tr><th>#</th><th>Objective</th></tr>
+<tr><td>6.1</td><td>How automation impacts network management</td></tr>
+<tr><td>6.2</td><td>Traditional vs controller-based networking</td></tr>
+<tr><td>6.3</td><td>Controller-based SDN architecture: overlay, underlay, fabric; control/data plane separation; northbound/southbound APIs</td></tr>
+<tr><td>6.4</td><td>Generative and predictive AI and ML in network operations (new in v1.1)</td></tr>
+<tr><td>6.5</td><td>REST API characteristics: authentication types, CRUD, HTTP verbs, data encoding</td></tr>
+<tr><td>6.6</td><td>Configuration management: Ansible and Terraform (Terraform new in v1.1)</td></tr>
+<tr><td>6.7</td><td>Recognize components of JSON-encoded data</td></tr></table>
+
+<h2>Weeks 11&ndash;12: readiness gate</h2>
+<ol><li>Boson ExSim full exam, timed. Below 75%: two more weeks on weakest domains before booking.</li><li>Re-lab every bold "configure and verify" objective above from a blank topology, timed.</li><li>Second ExSim at 85%+ : book Pearson VUE for the following week.</li></ol>
+<p class="cite">Sources: Cisco exam topics PDF; Jeremy's IT Lab resource list; Christopher Hart's CCNA resource list; r/ccna. See RESOURCES.md.</p>
+</main></body></html>

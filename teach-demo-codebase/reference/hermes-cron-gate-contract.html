@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Reference: Hermes cron gate contract</title><link rel="stylesheet" href="../assets/course.css"></head><body><main>
+<h1>Hermes cron: gate &amp; delivery contract</h1>
+<p class="sub">Cheat sheet. What the scheduler reads, in order. Source: <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/cron">Cron docs</a>, <a href="https://github.com/NousResearch/hermes-agent/pull/12373">PR #12373</a>.</p>
+
+<h2>Pipeline per tick</h2>
+<pre>pre-run script ──► gate parse ──► LLM run (+skills) ──► delivery
+   exit code        last stdout      final response      [SILENT]?
+</pre>
+
+<h2>1. Pre-run script</h2>
+<table>
+<tr><th>Script result</th><th>Scheduler does</th></tr>
+<tr><td>exit 0, last non-empty stdout line is JSON <code>{"wakeAgent": false}</code></td><td>Skip LLM. No tokens, no delivery. Output logged as silent tick.</td></tr>
+<tr><td>exit 0, anything else (no JSON, <code>wakeAgent=true</code>, <code>{"wakeAgent": 0}</code>, missing key)</td><td><b>Fail-open:</b> wake agent. Script stdout becomes context for the prompt.</td></tr>
+<tr><td>non-zero exit or timeout</td><td>Error alert <b>delivered</b>. Cannot be silenced.</td></tr>
+</table>
+<p class="note">Only strict boolean <code>false</code> gates. Earlier lines are free for logging.</p>
+
+<h2>2. LLM run</h2>
+<ul>
+<li>Skills load first, in listed order (<code>skills=["a","b"]</code>). Prompt layers on top.</li>
+<li><code>SOUL.md</code> is system-prompt slot #1 for every run.</li>
+<li>Output persisted: <code>~/.hermes/cron/output/{job_id}/{timestamp}.md</code></li>
+</ul>
+
+<h2>3. Delivery</h2>
+<table>
+<tr><th>Final response</th><th>Delivered?</th></tr>
+<tr><td>contains <code>[SILENT]</code>, run succeeded</td><td>No. Still saved locally.</td></tr>
+<tr><td>run failed</td><td>Yes, always. Marker ignored.</td></tr>
+<tr><td>otherwise</td><td>Yes.</td></tr>
+</table>
+
+<h2>Two markers, two layers. Never mix.</h2>
+<table>
+<tr><th></th><th><code>{"wakeAgent": false}</code></th><th><code>[SILENT]</code></th></tr>
+<tr><td>Who emits</td><td>Pre-run script</td><td>The LLM</td></tr>
+<tr><td>Where read</td><td>Last stdout line, before LLM</td><td>Final response, after LLM</td></tr>
+<tr><td>Saves tokens?</td><td>Yes</td><td>No (LLM already ran)</td></tr>
+<tr><td>Trap</td><td>Non-JSON text = wake</td><td>Script text containing <code>[SILENT]</code> can get echoed by LLM and silence a real alert</td></tr>
+</table>
+
+<h2>Gate template (bash)</h2>
+<pre><code>#!/usr/bin/env bash
+state=$(probe)            # any logging OK above
+if healthy; then
+  echo '{"wakeAgent": false}'; exit 0
+fi
+echo "ALERT: $state"      # plain text = agent wakes, sees this
+exit 0                    # keep 0; non-zero = error alert path</code></pre>
+<p class="nav"><a href="glossary.html">Glossary</a> · <a href="../lessons/0001-the-wake-gate.html">Lesson 1</a></p>
+</main></body></html>

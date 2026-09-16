@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Glossary: hermes-demo</title><link rel="stylesheet" href="../assets/course.css"></head><body><main>
+<h1>Glossary</h1><p class="sub">Terms used across all lessons. Use these exact words.</p>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td><b>Hermes Agent</b></td><td>Nous Research's self-hosted LLM agent runtime. Owns <code>~/.hermes</code>.</td></tr>
+<tr><td><b>Tick</b></td><td>One scheduled firing of a cron job.</td></tr>
+<tr><td><b>Pre-run script</b> (gate)</td><td>Program run before the LLM each tick. Its last stdout line can cancel the LLM run.</td></tr>
+<tr><td><b>wakeAgent</b></td><td>JSON key on the gate's last stdout line. Only strict <code>false</code> skips the LLM.</td></tr>
+<tr><td><b>Fail-open</b></td><td>Ambiguous gate output wakes the agent. Cost over silence.</td></tr>
+<tr><td><b>Silent tick</b></td><td>A tick where the gate closed: no LLM, no delivery, log only.</td></tr>
+<tr><td><b>[SILENT] marker</b></td><td>String in the LLM's final response. Suppresses delivery of a successful run.</td></tr>
+<tr><td><b>Delivery</b></td><td>Sending the run's output to the configured channel (chat, etc.).</td></tr>
+<tr><td><b>Skill</b></td><td>A <code>SKILL.md</code> with frontmatter, loaded into context before the prompt. Attachable to cron jobs.</td></tr>
+<tr><td><b>SOUL.md</b></td><td>Agent identity file. System-prompt slot #1 in every run.</td></tr>
+<tr><td><b>Profile</b></td><td>Isolated <code>~/.hermes/profiles/&lt;name&gt;</code> with own SOUL, skills, cron, config.</td></tr>
+</table>
+<p class="nav"><a href="hermes-cron-gate-contract.html">Gate contract</a></p>
+</main></body></html>
